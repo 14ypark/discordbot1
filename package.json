@@ -1,0 +1,9 @@
+{"dependencies":{
+  "npm":"",
+  "discord.js": "9.3.x",
+  "google": "1.1.x",
+   "google-images": "0.1.x",
+   "html-to-text": "1.5.x",
+   "youtube-node": "1.2.x"
+}
+}
