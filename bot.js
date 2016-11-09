@@ -3,6 +3,7 @@ var fs = require('fs');
 var auth = require("./auth.json")
 var token = auth.bot_token;
 
+
 var myBot = new Discord.Client({
   autorun: true
 });
@@ -20,24 +21,24 @@ myBot.on('message', message => {
 });
 var commands= {
   "say": {
-    process : function(myBot, msg, suff){message.channel.sendMessage(suff);}
+    process: function(myBot, msg, stuff){message.channel.sendMessage(stuff);}
   }
 }
 function checkforcmd(msg, isEdit){
   if(msg.author.id != myBot.user.id && (msg.content[0] === prefix)) {
     var cmdtext = msg.content.split(" ")[0].substring(1);
-    var suff = msg.content.substring(cmdtext.length +2);
+    var stuff = msg.content.substring(cmdtext.length +2);
     console.log(cmdtext);
-    console.log(suff);
+    console.log(stuff);
   }
-  console.log(commands.say);
-  console.log(cmdtext);
-  console.log(suff);
+  console.log(stuff);
   var cmd = commands[cmdtext];
   console.log(cmd);
+
   if(cmd){
     try{
-      cmd.process(myBot,msg,suff);
+      console.log("running command" + cmdtext);
+      cmd.process(myBot,msg,stuff);
     }catch(e){
       msg.channel.sendMessage("command does not exist");
     }
