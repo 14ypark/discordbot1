@@ -1,6 +1,8 @@
 var Discord = require("discord.js")
 var fs = require('fs');
-var auth = require("./auth.json")
+var auth = require("./auth.json");
+var yt = require("./youtube_plugin");
+var youtube_plugin = new yt();
 var token = auth.bot_token;
 
 
@@ -22,6 +24,9 @@ myBot.on('message', message => {
   }
   if(input === 'say'){
     message.channel.sendMessage(input2, {tts:true});
+  }
+  if(input === 'youtube'){
+    youtube_plugin.respond(input2, message.channel, myBot);
   }
 }
 });
