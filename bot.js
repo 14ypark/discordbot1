@@ -16,9 +16,7 @@ myBot.on('message', message => {
   if(message.content[0]=== prefix){
   var input = message.content.split(" ")[0].substring(1);
   var input2 = message.content.substring(input.length +2);
-  if (input === 'y') {
-    message.channel.sendMessage('yeon joon sucks at hanzo',   { tts: true});
-  }
+
   if (input ===  'hi'){
     message.channel.sendMessage('Hi '+ message.author.toString(), {tts:true});
   }
